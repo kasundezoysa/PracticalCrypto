@@ -1,0 +1,30 @@
+1. Download and install docker from store.docker.com
+    https://docs.docker.com/docker-for-windows/
+
+2. Define the Dockerfile
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install -y openssl
+
+3. Build a Docker image 
+docker build -t openssl .
+
+4. Run a docker continer/Remove it
+docker run -v ~/UCSC/:/home --name ubuntu -it openssl
+docker container rm ubuntu
+
+5. List all Docker images
+docker images -a
+
+6. List all Docker containers
+docker container ps -a
+
+7. Start a docker container
+docker container start -ai id
+
+8. Attach input/output to the container
+docker container attach id
+
+9. clean up
+docker system prune -a
+
